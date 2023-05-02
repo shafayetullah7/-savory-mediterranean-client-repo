@@ -5,7 +5,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
-import CarouselItem from "./CarouselItem";
 
 import img1 from '../../assets/carousel/img1.jpg';
 import img2 from '../../assets/carousel/img2.jpg';
