@@ -2,28 +2,49 @@ import React, { useContext, useState } from 'react';
 import { FaFacebook } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
-// import { AuthContext } from '../../authProvider/AuthProvider';
+import { AuthContext } from '../../authProvider/AuthProvider';
+
 
 const Register = () => {
-    // const {createUser,setUser} = useContext(AuthContext);
+    const {createUser,setUser,updateUser} = useContext(AuthContext);
     const [error,setError] = useState();
     const navigate = useNavigate();
     const handleSubmit = e =>{
         e.preventDefault();
         const form = e.target;
-        const email = form.email;
-        const password = form.password;
+
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photo = form.photo.value;
+
+        console.log(name,email,password,photo)
+
+        const urlRegex = /^(?:https?:\/\/)?(?:www\.)?(?:[\w-]+\.)+[a-z]{2,}$/i;
+        if(!urlRegex.test(photo)){
+            setError('Provide a valid photo url');
+        }
+        const url = "https://www.example.com";
+        const isValidUrl = urlRegex.test(url);
+        console.log(isValidUrl); // true
+
+
         
-        // createUser(email,password)
-        // .then(result=>{
-            
-        //     setUser(result.user);
-        //     form.reset();
-        //     navigate('/');
-        // })
-        // .catch(err=>{
-        //     setError(err.message)
-        // })
+        createUser(email,password)
+        .then(result=>{
+            updateUser({name,photo})
+            .then(()=>{
+                console.log('updated profile')
+            })
+            .catch(err=>{
+                console.log(err.message);
+            })
+            form.reset();
+            navigate('/',{replace:true});
+        })
+        .catch(err=>{
+            setError(err.message)
+        })
 
     }
     return (
@@ -33,12 +54,14 @@ const Register = () => {
                     <h1 className='text-3xl font-bold'>Create account</h1>
                     <form className='mt-16 font-semibold' onSubmit={handleSubmit}>
 
-                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="text" name='name' placeholder='Enter Your Name' />
-                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="email" name='email' placeholder='Enter Your Email' />
-                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="password" name='password' placeholder='Password' />
+                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal' type="text" name='name' placeholder='Enter Your Name' required/>
+                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="email" name='email' placeholder='Enter Your Email' required/>
+                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="password" name='password' placeholder='Password' required/>
+                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="text" name='photo' placeholder='Photo URL' required/>
                         
 
-                        <div className='text-sm flex justify-between items-center mt-5' >
+                        <div className='text-sm flex justify-between items-center mt-6 font-normal' >
+                            <p></p>
                             <p className='underline text-amber-500'>Forgot password</p>
                         </div>
 

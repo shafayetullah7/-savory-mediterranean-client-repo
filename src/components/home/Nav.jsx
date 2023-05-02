@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../authProvider/AuthProvider';
 
 const Nav = () => {
+    const {user} = useContext(AuthContext);
+    // console.log(user);
     return (
         <div className="navbar bg-base-100 lg:px-24 bg-transparent">
             <div className="navbar-start">
