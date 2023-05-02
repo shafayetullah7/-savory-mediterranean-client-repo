@@ -14,15 +14,15 @@ const Carousel = () => {
 
     const carouseData = [
         {
-            heading: "Meet Our Talented Mediterranean Chefs and Discover Their Recipes",
+            heading: "Meet Our Talented Chefs",
             description: "Our website is home to a collection of the world's most talented Mediterranean chefs. From classic dishes to innovative creations, our chefs share their unique recipes and cooking tips to inspire your next culinary adventure.",
         },
         {
-            heading: "Elevate Your Cooking with Chef-Approved Mediterranean Recipes",
+            heading: "Try Our Featured Recipe",
             description: "Our chef-approved recipes feature authentic Mediterranean flavors and ingredients, and are created by top culinary talents from around the world. Elevate your cooking skills and impress your guests with our delicious and nutritious recipes.",
         },
         {
-            heading: "Join Our Community of Food Lovers and Mediterranean Chefs",
+            heading: "Join Our Food Lovers Community",
             description: "Connect with other food lovers and Mediterranean chefs on our website. Share your favorite recipes, learn new techniques, and get inspired by the creativity of our talented chefs. Whether you're a home cook or a professional chef, there's something for everyone in our community.",
         }
     ]
@@ -39,7 +39,7 @@ const Carousel = () => {
                 pagination={{
                 clickable: true,
                 }}
-                speed={1000}
+                speed={1500}
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
