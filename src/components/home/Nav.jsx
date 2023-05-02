@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../authProvider/AuthProvider';
-import userAvatar from '../../assets/user.png'
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 
@@ -44,7 +43,7 @@ const Nav = () => {
                     </li>
                 </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-2xl text-left leading-5 text-white">Savory<br/>Mediterranean</a>
+                <a className="btn btn-ghost normal-case text-2xl text-left leading-5 text-white font-avro">Savory<br/>Mediterranean</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

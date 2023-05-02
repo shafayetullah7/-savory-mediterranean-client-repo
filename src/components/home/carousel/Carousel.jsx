@@ -47,7 +47,7 @@ const Carousel = () => {
                     <div className='relative w-full h-[600px]'>
                         <img className='h-full w-full object-cover object-cente absolute top-0 -z-10' src={img1} alt="" />
                         <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-30 text-white w-[600px]">
-                            <h1 className="text-6xl">{carouseData[0].heading}</h1>
+                            <h1 className="font-avro font-black text-6xl">{carouseData[0].heading}</h1>
                             <p className="mt-10 text-gray-200">{carouseData[0].description}</p>
                         </div>
                         <div className="w-full h-full bg-black bg-opacity-70 absolute"></div>
@@ -57,7 +57,7 @@ const Carousel = () => {
                     <div className='relative w-full h-[600px]'>
                         <img className='h-full w-full object-cover object-cente absolute top-0 -z-10' src={img2} alt="" />
                         <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-30 text-white w-[600px]">
-                            <h1 className="text-6xl">{carouseData[1].heading}</h1>
+                            <h1 className="font-avro font-black text-6xl">{carouseData[1].heading}</h1>
                             <p className="mt-10 text-gray-200">{carouseData[1].description}</p>
                         </div>
                         <div className="w-full h-full bg-black bg-opacity-70 absolute"></div>
@@ -67,7 +67,7 @@ const Carousel = () => {
                     <div className='relative w-full h-[600px]'>
                         <img className='h-full w-full object-cover object-cente absolute top-0 -z-10' src={img3} alt="" />
                         <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-30 text-white w-[600px]">
-                            <h1 className="text-6xl">{carouseData[2].heading}</h1>
+                            <h1 className="font-avro font-black text-6xl">{carouseData[2].heading}</h1>
                             <p className="mt-10 text-gray-200">{carouseData[2].description}</p>
                         </div>
                         <div className="w-full h-full bg-black bg-opacity-70 absolute"></div>
