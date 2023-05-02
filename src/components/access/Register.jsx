@@ -11,6 +11,7 @@ const Register = () => {
     const navigate = useNavigate();
     const handleSubmit = e =>{
         e.preventDefault();
+        setError(null);
         const form = e.target;
 
         const name = form.name.value;
@@ -20,14 +21,18 @@ const Register = () => {
 
         console.log(name,email,password,photo)
 
-        const urlRegex = /^(?:https?:\/\/)?(?:www\.)?(?:[\w-]+\.)+[a-z]{2,}$/i;
-        if(!urlRegex.test(photo)){
-            setError('Provide a valid photo url');
+        if(!email){
+            setError('Must provide an email!');
+            return;
         }
-        const url = "https://www.example.com";
-        const isValidUrl = urlRegex.test(url);
-        console.log(isValidUrl); // true
-
+        if(!password){
+            setError('Must provide a password!');
+            return;
+        }
+        if(password.length<6){
+            setError('Password cannot be less than six character');
+            return;
+        }
 
         
         createUser(email,password)
@@ -54,21 +59,16 @@ const Register = () => {
                     <h1 className='text-3xl font-bold'>Create account</h1>
                     <form className='mt-16 font-semibold' onSubmit={handleSubmit}>
 
-                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal' type="text" name='name' placeholder='Enter Your Name' required/>
-                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="email" name='email' placeholder='Enter Your Email' required/>
-                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="password" name='password' placeholder='Password' required/>
-                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="text" name='photo' placeholder='Photo URL' required/>
+                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal' type="text" name='name' placeholder='Enter Your Name'/>
+                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="email" name='email' placeholder='Enter Your Email'/>
+                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="password" name='password' placeholder='Password'/>
+                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="text" name='photo' placeholder='Photo URL'/>
                         
 
-                        <div className='text-sm flex justify-between items-center mt-6 font-normal' >
-                            <p></p>
-                            <p className='underline text-amber-500'>Forgot password</p>
-                        </div>
-
-                        <input className='bg-amber-500 block w-full py-3 mt-12' type="submit" value={'Create an account'}/>
+                        <input className='bg-amber-500 block w-full py-3 mt-12 cursor-pointer' type="submit" value={'Create an account'}/>
                     </form>
 
-                    <p>{error}</p>
+                    {error && <p className='mt-1 text-xs text-red-600'>Error: {error}</p>}
                     <p className='text-sm text-center mt-5'>Already have an account? <Link className='text-amber-500 font-semibold underline' to={'/login'} replace>Login</Link></p>
                 </div>
                 

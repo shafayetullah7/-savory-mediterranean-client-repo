@@ -1,9 +1,20 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../authProvider/AuthProvider';
+import userAvatar from '../../assets/user.png'
 
 const Nav = () => {
-    const {user} = useContext(AuthContext);
+    const {user,loading,logout} = useContext(AuthContext);
+
+    const  handleLogout = ()=>{
+        logout()
+        .then(()=>{
+            console.log('logged out');
+        })
+        .catch(err=>{
+            console.log(err.message);
+        })
+    }
     // console.log(user);
     return (
         <div className="navbar bg-base-100 lg:px-24 bg-transparent">
@@ -54,7 +65,12 @@ const Nav = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className='btn btn-warning' to={'/login'}>Login</Link>
+                {(user) && 
+                <div className='flex gap-5 items-center'>
+                    {user.photoURL && <img className='w-12 h-12 rounded-full' src={user.photoURL}/>}
+                    <button className='btn btn-warning' onClick={handleLogout}>Logout</button>
+                </div>}
+                {(!user && !loading) && <Link className='btn btn-warning' to={'/login'}>Login</Link>}
             </div>
         </div>
     );

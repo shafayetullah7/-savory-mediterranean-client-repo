@@ -6,9 +6,9 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
 
-import img1 from '../../assets/carousel/img1.jpg';
-import img2 from '../../assets/carousel/img2.jpg';
-import img3 from '../../assets/carousel/img3.jpg';
+import img1 from '../../../assets/carousel/img1.jpg';
+import img2 from '../../../assets/carousel/img2.jpg';
+import img3 from '../../../assets/carousel/img3.jpg';
 
 const Carousel = () => {
 

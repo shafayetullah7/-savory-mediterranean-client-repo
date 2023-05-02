@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouteError } from 'react-router-dom';
-import errorImage from '../assets/error404.json'
+import errorImage from '../../assets/error404.json'
 import { useLottie } from 'lottie-react';
 
 
