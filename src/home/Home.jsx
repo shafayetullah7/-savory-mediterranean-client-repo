@@ -1,12 +1,16 @@
 import React from 'react';
 import Nav from './Nav';
-import Carousel from './Carousel';
+import Carousel from './carousel/Carousel';
 
 const Home = () => {
     return (
-        <div>
-            <Nav></Nav>
+        <div className='relative'>
+            <div className='z-40 absolute top-0 w-full text-white'>
+                <Nav></Nav>
+            </div>
+            <div className=''>
             <Carousel></Carousel>
+            </div>
         </div>
     );
 };
