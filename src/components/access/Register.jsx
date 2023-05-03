@@ -1,14 +1,36 @@
 import React, { useContext, useState } from 'react';
-import { FaFacebook } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../authProvider/AuthProvider';
 
 
 const Register = () => {
-    const {createUser,setUser,updateUser} = useContext(AuthContext);
+    const {createUser,setUser,updateUser,googleLogin,githubLogin} = useContext(AuthContext);
     const [error,setError] = useState();
     const navigate = useNavigate();
+
+    const handleGoogleLogin = () =>{
+        googleLogin()
+        .then(result=>{
+            console.log(result.user);
+            navigate('/',{replace:true});
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }
+    const handleGithubLogin = () =>{
+        githubLogin()
+        .then(result=>{
+            console.log(result.user);
+            navigate('/',{replace:true});
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }
+
     const handleSubmit = e =>{
         e.preventDefault();
         setError(null);
@@ -75,13 +97,13 @@ const Register = () => {
                 <div className="divider mt-7 text-gray-600">OR</div>
 
                 <div className='mt-5'>
-                    <button className='flex justify-between items-center w-[280px] mx-auto border p-1 rounded-full'>
-                        <FaFacebook className='text-3xl text-blue-600'></FaFacebook>
-                        <p className='text-sm font-semibold text-gray-800'>Continue with Facebook</p>
+                    <button className='flex justify-between items-center w-[280px] mx-auto border p-1 rounded-full' onClick={handleGithubLogin}>
+                        <FaGithub className='text-3xl'></FaGithub>
+                        <p className='text-sm font-semibold text-gray-800'>Continue with Github</p>
                         <p></p>
                     </button>
-                    <button className='flex justify-between items-center w-[280px] mx-auto border p-1 rounded-full mt-2'>
-                        <FcGoogle className='text-3xl text-blue-600'></FcGoogle>
+                    <button className='flex justify-between items-center w-[280px] mx-auto border p-1 rounded-full mt-2' onClick={handleGoogleLogin}>
+                        <FcGoogle className='text-3xl'></FcGoogle>
                         <p className='text-sm font-semibold text-gray-800'>Continue with Google</p>
                         <p></p>
                     </button>
