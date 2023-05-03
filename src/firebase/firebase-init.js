@@ -4,14 +4,18 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCuHcf7s021Eu9EPjdoNcWoUjkwLARKswk",
-  authDomain: "savory-mediterranean.firebaseapp.com",
-  projectId: "savory-mediterranean",
-  storageBucket: "savory-mediterranean.appspot.com",
-  messagingSenderId: "814315399972",
-  appId: "1:814315399972:web:751810e89e964d14eea1b1"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID
 };
+
+
+
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
