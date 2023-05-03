@@ -1,10 +1,11 @@
 import React from 'react';
-import recipeIcon from '../../assets/recipe-15.png'
+import recipeIcon15 from '../../assets/recipe-15.png'
+import recipeIcon20 from '../../assets/recipe-20.png'
 import { AiFillLike } from "react-icons/ai";
 
 const Chef = ({chef}) => {
     return (
-        <div className='w-[320px] h-[350px] border p-3 rounded-lg flex flex-col'>
+        <div className='w-[320px] h-[350px] border p-3 rounded-xl flex flex-col'>
             <div className='relative'>
                 <img className='w-full h-[200px] object-cover object-top block rounded-md' src={chef.chef_picture} />
                 <p className='text-[#A3BB98] text-2xl font-bold absolute top-2 left-3'>{chef.chef_name}</p>
@@ -14,7 +15,7 @@ const Chef = ({chef}) => {
                 <p><span className='font-bold'>Experience :</span> {chef.years_of_experience} years</p>
                 <div className='flex items-center justify-between text-gray-500 border px-3 py-2 rounded-lg'>
                     <div className='flex items-center gap-1'>
-                        <img src={recipeIcon} alt="" />
+                        <img className='relative bottom-[2px]' src={recipeIcon15} alt="" />
                         <p>{chef.num_recipes} recipes</p>
                     </div>
                     <div className='flex items-center gap-1'>
@@ -22,7 +23,7 @@ const Chef = ({chef}) => {
                         <AiFillLike className='text-xl'></AiFillLike>
                     </div>
                 </div>
-                <button className='w-full py-3 bg-[#A3BB98] text-xl font-bold absolute bottom-0'>View Recipes</button>
+                <button className='w-full py-3 bg-[#A3BB98] text-xl font-bold absolute bottom-0 flex justify-center items-center gap-3'><img src={recipeIcon20} className='relative bottom-[2px]' alt="" /> View Recipes</button>
             </div>
             
         </div>

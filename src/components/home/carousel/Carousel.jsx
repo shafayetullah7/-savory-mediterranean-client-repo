@@ -44,31 +44,31 @@ const Carousel = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className='relative w-full h-[600px]'>
+                    <div className='relative w-full md:h-[90vh] h-[80vh]'>
                         <img className='h-full w-full object-cover object-cente absolute top-0 -z-10' src={img1} alt="" />
-                        <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-30 text-white w-[600px]">
-                            <h1 className="font-avro font-black text-6xl">{carouseData[0].heading}</h1>
-                            <p className="mt-10 text-gray-200">{carouseData[0].description}</p>
+                        <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-30 text-white lg:w-[600px] text-center px-5 w-full">
+                            <h1 className="font-avro font-black md:text-6xl text-4xl">{carouseData[0].heading}</h1>
+                            <p className="md:mt-10 mt-5 text-gray-200">{carouseData[0].description}</p>
                         </div>
                         <div className="w-full h-full bg-black bg-opacity-70 absolute"></div>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className='relative w-full h-[600px]'>
+                    <div className='relative w-full md:h-[90vh] h-[80vh]'>
                         <img className='h-full w-full object-cover object-cente absolute top-0 -z-10' src={img2} alt="" />
-                        <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-30 text-white w-[600px]">
-                            <h1 className="font-avro font-black text-6xl">{carouseData[1].heading}</h1>
-                            <p className="mt-10 text-gray-200">{carouseData[1].description}</p>
+                        <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-30 text-white lg:w-[600px] text-center px-5 w-full">
+                            <h1 className="font-avro font-black md:text-6xl text-4xl">{carouseData[1].heading}</h1>
+                            <p className="md:mt-10 mt-5 text-gray-200">{carouseData[1].description}</p>
                         </div>
                         <div className="w-full h-full bg-black bg-opacity-70 absolute"></div>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className='relative w-full h-[600px]'>
+                    <div className='relative w-full md:h-[90vh] h-[80vh]'>
                         <img className='h-full w-full object-cover object-cente absolute top-0 -z-10' src={img3} alt="" />
-                        <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-30 text-white w-[600px]">
-                            <h1 className="font-avro font-black text-6xl">{carouseData[2].heading}</h1>
-                            <p className="mt-10 text-gray-200">{carouseData[2].description}</p>
+                        <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-30 text-white lg:w-[600px] text-center px-5 w-full">
+                            <h1 className="font-avro font-black md:text-6xl text-4xl">{carouseData[2].heading}</h1>
+                            <p className="md:mt-10 mt-5 text-gray-200">{carouseData[2].description}</p>
                         </div>
                         <div className="w-full h-full bg-black bg-opacity-70 absolute"></div>
                     </div>
