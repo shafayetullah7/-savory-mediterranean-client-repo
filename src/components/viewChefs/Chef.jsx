@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import recipeIcon15 from '../../assets/recipe-15.png'
 import recipeIcon20 from '../../assets/recipe-20.png'
 import { AiFillLike } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../authProvider/AuthProvider';
 
 const Chef = ({chef}) => {
     const navigate = useNavigate();
+    const {loading,setLoading} = useContext(AuthContext);
 
     const handleViewRecipes = () =>{
         const ids = chef.recipe_ids.join('-');
         console.log(ids);
+        setLoading(true);
         navigate(`/chefs/${chef.id}`);
     }
     return (

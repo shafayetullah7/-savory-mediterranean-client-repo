@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Recipe from './Recipe';
+import { AuthContext } from '../../authProvider/AuthProvider';
 
 const ChefRecipes = () => {
     const [chef,recipes] = useLoaderData();
+    const {loading,setLoading} = useContext(AuthContext);
+    setLoading(false);
     console.log(chef);
     console.log(recipes);
     return (
         <div>
-            <div className='md:mx-24 mx-2'>
-                <div className='bg-[#A3BB98] bg-opacity-20 p-5 rounded-xl flex gap-10 mt-16 lg:h-[500px]'>
+            <div>
+                <div className='bg-[#A3BB98] bg-opacity-20 p-5 rounded-xl flex gap-10 lg:h-[500px]'>
                     <div className='w-full'>
                         <img className='w-full h-full object-cover object-top rounded-lg shadow-xl' src={chef.chef_picture} alt="" />
                     </div>

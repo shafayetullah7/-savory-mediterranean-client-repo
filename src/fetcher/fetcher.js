@@ -7,6 +7,7 @@ export const fetchChef = async ({params}) =>{
     const id = params.id;
     const result = await fetch(`https://savory-mediterranean-shafayetullah7.vercel.app/chefs/${id}`);
     const data = await result.json();
+    return data;
 }
 // export const fetchChefRecipes = async ({})
 
