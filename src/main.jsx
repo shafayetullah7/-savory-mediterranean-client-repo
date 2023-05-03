@@ -9,6 +9,7 @@ import Login from './components/access/Login.jsx'
 import Blog from './components/blog/Blog.jsx'
 import Register from './components/access/Register.jsx'
 import AuthProvider from './authProvider/AuthProvider.jsx'
+import { fetchChefs } from './fetcher/fetcher.js'
 
 
 const routes = createBrowserRouter([
@@ -19,7 +20,8 @@ const routes = createBrowserRouter([
     children:[
       {
         path:'/',
-        element:<Home></Home>
+        element:<Home></Home>,
+        loader:fetchChefs
       },
       {
         path:'/blog',
