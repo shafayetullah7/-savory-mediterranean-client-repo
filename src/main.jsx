@@ -10,8 +10,10 @@ import Blog from './components/blog/Blog.jsx'
 import Register from './components/access/Register.jsx'
 import AuthProvider from './authProvider/AuthProvider.jsx'
 import { fetchChefAndRecipes, fetchChefs } from './fetcher/fetcher.js'
-import Recipes from './components/chefAndRecipes/Recipes.jsx'
+import Recipes from './components/chefAndRecipes/Recipe.jsx'
 import ChefRecipes from './components/chefAndRecipes/ChefRecipes.jsx'
+import Land from './components/home/Land.jsx'
+import PrivateRoute from './components/privateRoute/PrivateRoute.jsx'
 
 
 const routes = createBrowserRouter([
@@ -23,7 +25,18 @@ const routes = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>,
-        loader:fetchChefs
+        children:[
+          {
+            path:'/',
+            element:<Land></Land>,
+            loader:fetchChefs
+          },
+          {
+            path:'/chefs/:id',
+            element:<PrivateRoute><ChefRecipes></ChefRecipes></PrivateRoute>,
+            loader:fetchChefAndRecipes
+          }
+        ],
       },
       {
         path:'/blog',
@@ -37,11 +50,7 @@ const routes = createBrowserRouter([
         path:'/register',
         element:<Register></Register>
       },
-      {
-        path:'/chefs/:id',
-        element:<ChefRecipes></ChefRecipes>,
-        loader:fetchChefAndRecipes
-      }
+      
     ]
   }
 ])

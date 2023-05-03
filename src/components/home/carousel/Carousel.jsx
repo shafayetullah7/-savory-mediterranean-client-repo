@@ -44,8 +44,8 @@ const Carousel = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className='relative w-full md:h-[90vh] h-[80vh]'>
-                        <img className='h-full w-full object-cover object-cente absolute top-0 -z-10' src={img1} alt="" />
+                    <div className='relative w-full  h-[80vh]'>
+                        <img className='h-full w-full object-cover object-top absolute top-0 -z-10' src={img1} alt="" />
                         <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-30 text-white lg:w-[600px] text-center px-5 w-full">
                             <h1 className="font-avro font-black md:text-6xl text-4xl">{carouseData[0].heading}</h1>
                             <p className="md:mt-10 mt-5 text-gray-200">{carouseData[0].description}</p>
@@ -54,8 +54,8 @@ const Carousel = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className='relative w-full md:h-[90vh] h-[80vh]'>
-                        <img className='h-full w-full object-cover object-cente absolute top-0 -z-10' src={img2} alt="" />
+                    <div className='relative w-full  h-[80vh]'>
+                        <img className='h-full w-full object-cover object-top absolute top-0 -z-10' src={img2} alt="" />
                         <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-30 text-white lg:w-[600px] text-center px-5 w-full">
                             <h1 className="font-avro font-black md:text-6xl text-4xl">{carouseData[1].heading}</h1>
                             <p className="md:mt-10 mt-5 text-gray-200">{carouseData[1].description}</p>
@@ -64,8 +64,8 @@ const Carousel = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className='relative w-full md:h-[90vh] h-[80vh]'>
-                        <img className='h-full w-full object-cover object-cente absolute top-0 -z-10' src={img3} alt="" />
+                    <div className='relative w-full  h-[80vh]'>
+                        <img className='h-full w-full object-cover object-top absolute top-0 -z-10' src={img3} alt="" />
                         <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-30 text-white lg:w-[600px] text-center px-5 w-full">
                             <h1 className="font-avro font-black md:text-6xl text-4xl">{carouseData[2].heading}</h1>
                             <p className="md:mt-10 mt-5 text-gray-200">{carouseData[2].description}</p>

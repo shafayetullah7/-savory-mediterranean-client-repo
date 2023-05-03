@@ -29,7 +29,7 @@ const Nav = () => {
                         <NavLink
                             to='/'
                             className={({ isActive, isPending }) =>
-                            isActive? "text-[#FFB100]": ""
+                            isActive? "font-bold scale-110 duration-150": ""
                             }
                         >Home</NavLink>
                     </li>
@@ -37,21 +37,21 @@ const Nav = () => {
                         <NavLink
                             to='/blog'
                             className={({ isActive, isPending }) =>
-                            isActive? "text-[#FFB100]": ""
+                            isActive? "font-bold scale-110 duration-150": ""
                             }
                         >Blog</NavLink>
                     </li>
                 </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-2xl text-left leading-5 text-white font-avro">Savory<br/>Mediterranean</a>
+                <a className="btn btn-ghost normal-case text-2xl text-left leading-5 text-gray-800 font-avro">Savory<br/>Mediterranean</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal gap-5 px-1">
                     <li>
                         <NavLink
                             to='/'
                             className={({ isActive, isPending }) =>
-                            isActive? "text-[#FFB100]": ""
+                            isActive? "font-bold scale-110 duration-150": ""
                             }
                         >Home</NavLink>
                     </li>
@@ -59,7 +59,7 @@ const Nav = () => {
                         <NavLink
                             to='/blog'
                             className={({ isActive, isPending }) =>
-                            isActive? "text-[#FFB100]": ""
+                            isActive? "font-bold scale-110 duration-150": ""
                             }
                         >Blog</NavLink>
                     </li>
@@ -70,9 +70,9 @@ const Nav = () => {
                 <div className='flex gap-5 items-center'>
                     <Tooltip id="tooltip1" />
                     {user.photoURL && <img data-tooltip-id="tooltip1" data-tooltip-content={user.displayName} className='w-12 h-12 rounded-full' src={user.photoURL}/>}
-                    <button className='btn btn-warning' onClick={handleLogout}>Logout</button>
+                    <button className='btn bg-gray-800' onClick={handleLogout}>Logout</button>
                 </div>}
-                {(!user && !loading) && <Link className='btn btn-warning' to={'/login'}>Login</Link>}
+                {(!user && !loading) && <Link className='btn bg-gray-800' to={'/login'}>Login</Link>}
             </div>
         </div>
     );
