@@ -1,12 +1,12 @@
 import React from 'react';
 import Nav from './Nav';
 import Carousel from './carousel/Carousel';
-import Chefs from '../chefs/Chefs';
+import Chefs from '../viewChefs/Chefs';
 import { useLoaderData } from 'react-router-dom';
 
 const Home = () => {
     const chefs = useLoaderData();
-    console.log(chefs);
+    // console.log(chefs);
     return (
         <div>
             <div className='relative'>

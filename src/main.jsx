@@ -9,7 +9,9 @@ import Login from './components/access/Login.jsx'
 import Blog from './components/blog/Blog.jsx'
 import Register from './components/access/Register.jsx'
 import AuthProvider from './authProvider/AuthProvider.jsx'
-import { fetchChefs } from './fetcher/fetcher.js'
+import { fetchChefAndRecipes, fetchChefs } from './fetcher/fetcher.js'
+import Recipes from './components/chefAndRecipes/Recipes.jsx'
+import ChefRecipes from './components/chefAndRecipes/ChefRecipes.jsx'
 
 
 const routes = createBrowserRouter([
@@ -34,6 +36,11 @@ const routes = createBrowserRouter([
       {
         path:'/register',
         element:<Register></Register>
+      },
+      {
+        path:'/chefs/:id',
+        element:<ChefRecipes></ChefRecipes>,
+        loader:fetchChefAndRecipes
       }
     ]
   }

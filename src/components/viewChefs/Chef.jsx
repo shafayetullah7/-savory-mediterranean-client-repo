@@ -2,8 +2,16 @@ import React from 'react';
 import recipeIcon15 from '../../assets/recipe-15.png'
 import recipeIcon20 from '../../assets/recipe-20.png'
 import { AiFillLike } from "react-icons/ai";
+import { useNavigate } from 'react-router-dom';
 
 const Chef = ({chef}) => {
+    const navigate = useNavigate();
+
+    const handleViewRecipes = () =>{
+        const ids = chef.recipe_ids.join('-');
+        console.log(ids);
+        navigate(`/chefs/${chef.id}`);
+    }
     return (
         <div className='w-[320px] h-[350px] border p-3 rounded-xl flex flex-col'>
             <div className='relative'>
@@ -23,7 +31,7 @@ const Chef = ({chef}) => {
                         <AiFillLike className='text-xl'></AiFillLike>
                     </div>
                 </div>
-                <button className='w-full py-3 bg-[#A3BB98] text-xl font-bold absolute bottom-0 flex justify-center items-center gap-3'><img src={recipeIcon20} className='relative bottom-[2px]' alt="" /> View Recipes</button>
+                <button className='w-full py-3 bg-[#A3BB98] text-xl font-bold absolute bottom-0 flex justify-center items-center gap-3' onClick={handleViewRecipes}><img src={recipeIcon20} className='relative bottom-[2px]' alt=""/> View Recipes</button>
             </div>
             
         </div>
