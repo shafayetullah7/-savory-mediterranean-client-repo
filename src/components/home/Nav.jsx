@@ -72,9 +72,9 @@ const Nav = () => {
                 <div className='flex gap-5 items-center'>
                     <Tooltip place='left' id="tooltip1" />
                     {user.photoURL && <img data-tooltip-id="tooltip1" data-tooltip-content={user.displayName} className='w-12 h-12 rounded-full' src={user.photoURL}/>}
-                    <button className='btn bg-gray-800' onClick={handleLogout}>Logout</button>
+                    <button className='btn bg-gray-800 text-[#d7cdb3]' onClick={handleLogout}>Logout</button>
                 </div>}
-                {(!user && !loading) && <Link className='btn bg-gray-800' to={'/login'} state={{from:location}}>Login</Link>}
+                {(!user && !loading) && <Link className='btn bg-gray-800 text-[#d7cdb3]' to={'/login'} state={{from:location}}>Login</Link>}
             </div>
         </div>
     );

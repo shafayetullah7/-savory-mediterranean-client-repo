@@ -19,7 +19,7 @@ const Chef = ({chef}) => {
         <div className='w-[320px] h-[350px] border p-3 rounded-xl flex flex-col'>
             <div className='relative'>
                 <img className='w-full h-[200px] object-cover object-top block rounded-md' src={chef.chef_picture} />
-                <p className='text-[#A3BB98] text-2xl font-bold absolute top-2 left-3'>{chef.chef_name}</p>
+                <p className='text-[#A3BB98] text-2xl font-bold absolute top-2 left-3 font-avro'>{chef.chef_name}</p>
             </div>
             
             <div className='mt-4 relative h-full'>

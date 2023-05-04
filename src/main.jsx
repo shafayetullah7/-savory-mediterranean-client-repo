@@ -9,8 +9,7 @@ import Login from './components/access/Login.jsx'
 import Blog from './components/blog/Blog.jsx'
 import Register from './components/access/Register.jsx'
 import AuthProvider from './authProvider/AuthProvider.jsx'
-import { fetchChefAndRecipes, fetchChefs } from './fetcher/fetcher.js'
-import Recipes from './components/chefAndRecipes/Recipe.jsx'
+import { fetchChefAndRecipes, fetchChefs, fetchLandingData } from './fetcher/fetcher.js'
 import ChefRecipes from './components/chefAndRecipes/ChefRecipes.jsx'
 import Land from './components/home/Land.jsx'
 import PrivateRoute from './components/privateRoute/PrivateRoute.jsx'
@@ -29,7 +28,7 @@ const routes = createBrowserRouter([
           {
             path:'/',
             element:<Land></Land>,
-            loader:fetchChefs
+            loader:fetchLandingData
           },
         ],
       },

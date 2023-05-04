@@ -22,7 +22,7 @@ const Home = () => {
                     data-testid="loader"
                 />
             </div>
-            <div className='lg:mx-24 mt-32'>
+            <div className='lg:px-24 px-2 mt-32'>
                 <Outlet></Outlet>
             </div>
             
