@@ -7,7 +7,6 @@ import { Tooltip } from 'react-tooltip'
 const Nav = () => {
     const {user,loading,logout} = useContext(AuthContext);
     const location = useLocation();
-    console.log(location);
 
     const  handleLogout = ()=>{
         logout()
@@ -31,7 +30,7 @@ const Nav = () => {
                         <NavLink
                             to='/'
                             className={({ isActive, isPending }) =>
-                            isActive? "font-bold scale-110 duration-150": ""
+                            isActive? "font-bold scale-110 duration-150 text-[#672d0c]": ""
                             }
                         >Home</NavLink>
                     </li>
@@ -39,13 +38,13 @@ const Nav = () => {
                         <NavLink
                             to='/blog'
                             className={({ isActive, isPending }) =>
-                            isActive? "font-bold scale-110 duration-150": ""
+                            isActive? "font-bold scale-110 duration-150 text-[#672d0c]": ""
                             }
                         >Blog</NavLink>
                     </li>
                 </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-2xl text-left leading-5 text-gray-800 font-avro">Savory<br/>Mediterranean</a>
+                <a className="btn btn-ghost normal-case text-2xl text-left leading-5 text-[#672d0c] font-avro">Savory<br/>Mediterranean</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal gap-5 px-1">
@@ -53,7 +52,7 @@ const Nav = () => {
                         <NavLink
                             to='/'
                             className={({ isActive, isPending }) =>
-                            isActive? "font-bold scale-110 duration-150": ""
+                            isActive? "font-bold scale-110 duration-150 text-[#672d0c]": ""
                             }
                         >Home</NavLink>
                     </li>
@@ -61,7 +60,7 @@ const Nav = () => {
                         <NavLink
                             to='/blog'
                             className={({ isActive, isPending }) =>
-                            isActive? "font-bold scale-110 duration-150": ""
+                            isActive? "font-bold scale-110 duration-150 text-[#672d0c]": ""
                             }
                         >Blog</NavLink>
                     </li>

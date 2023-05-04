@@ -24,13 +24,7 @@ const routes = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>,
-        children:[
-          {
-            path:'/',
-            element:<Land></Land>,
-            loader:fetchLandingData
-          },
-        ],
+        loader:fetchLandingData
       },
       {
         path:'/chefs/:id',

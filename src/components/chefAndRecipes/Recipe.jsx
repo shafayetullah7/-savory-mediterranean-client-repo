@@ -23,14 +23,14 @@ const Recipe = ({recipe}) => {
 
     console.log(recipe);
     return (
-        <div className='w-[330px] h-[460px] border border-[#FFB100] p-3 rounded-xl flex flex-col'>
+        <div className='w-[330px] h-[460px] border border-[#672d0c] p-3 rounded-xl flex flex-col'>
             <div className='relative'>
                 <img className='w-full h-[200px] object-cover object-top block rounded-md' src={recipe.img} />
             </div>
             <div className='mt-3 relative h-full'>
                 <div className='flex justify-between items-center'>
-                    <p className='text-[#FFB100] text-2xl font-bold'>{recipe.recipeName}</p>
-                    <button className={`px-4 py-2 rounded-md border ${!favorite?'border-[#FFB100] text-[#FFB100]':'border-[#ffd77b] text-[#ffd77b]'} font-bold text-xs`} disabled={favorite} onClick={handleFavorite}>Favorite</button>
+                    <p className='text-[#672d0c] text-2xl font-bold'>{recipe.recipeName}</p>
+                    <button className={`px-4 py-2 rounded-md border ${!favorite?'border-[#672d0c] text-[#672d0c]':'border-[#ffd77b] text-[#ffd77b]'} font-bold text-xs`} disabled={favorite} onClick={handleFavorite}>Favorite</button>
                 </div>
                 <p className='mt-3 text-sm text-gray-500'><span className='text-black font-bold'>Ingredients: </span>{recipe.ingredients.map((each,i,list) => <span key={i}>{each}{i===list.length-1?<span>.</span>:<span>,</span>} </span>)}</p>
                 

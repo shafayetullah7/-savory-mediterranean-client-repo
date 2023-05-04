@@ -1,14 +1,19 @@
 import React, { useContext } from 'react';
 import Carousel from './carousel/Carousel';
-import { Outlet } from 'react-router-dom';
 import { AuthContext } from '../../authProvider/AuthProvider';
 import BarLoader from "react-spinners/ClipLoader";
-
+import Chefs from '../viewChefs/Chefs';
+import { useLoaderData } from 'react-router-dom';
+import Services from './Services';
+import Reviews from './Reviews';
   
 
 const Home = () => {
     const {loading} = useContext(AuthContext);
     // console.log(chefs);
+    const [chefs,reviews] = useLoaderData();
+    console.log(chefs,reviews);
+
     return (
         <div>
             <Carousel></Carousel>
@@ -22,8 +27,16 @@ const Home = () => {
                     data-testid="loader"
                 />
             </div>
-            <div className='lg:px-24 px-2 mt-32'>
-                <Outlet></Outlet>
+            <div className='lg:px-24'>
+                <div className='mt-52'>
+                    <Chefs chefs={chefs}></Chefs>
+                </div>
+                <div className='mt-52'>
+                    <Services></Services>
+                </div>
+                <div className='mt-52'>
+                    <Reviews reviews={reviews}></Reviews>
+                </div>
             </div>
             
         </div>

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import LazyLoad from 'react-lazyload';
 import Recipe from './Recipe';
 import { AuthContext } from '../../authProvider/AuthProvider';
 
@@ -8,16 +9,20 @@ const ChefRecipes = () => {
     const {loading,setLoading} = useContext(AuthContext);
     useEffect(()=>{
         setLoading(false);
+        
     },[])
 
     console.log(chef);
     console.log(recipes);
     return (
-        <div>
+        <div className='px-24 mt-24'>
             <div>
                 <div className='bg-[#A3BB98] bg-opacity-20 p-5 rounded-xl flex gap-10 lg:h-[500px]'>
                     <div className='w-full'>
+                    <LazyLoad className='h-full'>
                         <img className='w-full h-full object-cover object-top rounded-lg shadow-xl' src={chef.chef_picture} alt="" />
+                    </LazyLoad>
+                        {/* <img className='w-full h-full object-cover object-top rounded-lg shadow-xl' src={chef.chef_picture} alt="" /> */}
                     </div>
                     <div className='w-full flex items-center'>
                         <div>

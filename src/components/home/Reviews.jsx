@@ -5,9 +5,9 @@ import '@smastrom/react-rating/style.css';
 
 const Reviews = ({reviews}) => {
     return (
-        <div className='border py-10 rounded-xl'>
+        <div className='py-10'>
             <h1 className='text-center text-4xl font-bold'>What our customers have to say</h1>
-            <div className='w-full mt-16'>
+            <div className='w-full mt-16 border py-10 rounded-xl'>
                 <Marquee >
                     {reviews.map(review => <div 
                     key={review.id}

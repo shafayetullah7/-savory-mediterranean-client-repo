@@ -11,7 +11,7 @@ const Land = () => {
     // console.log(data);
     return (
         <div>
-            <div>
+            <div className='mt-52'>
                 <Chefs chefs={chefs}></Chefs>
             </div>
             <div className='mt-52'>

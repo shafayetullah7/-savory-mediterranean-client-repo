@@ -12,7 +12,7 @@ const PrivateRoute = ({children}) => {
         <div>
             {/* {loading && <h1>Loading</h1>} */}
             {/* {(!user) && <h1>loading</h1>} */}
-            {(!user) && <Navigate to={'/login'} state={{from:location}} replace></Navigate>}
+            {(!user && !loading) && <Navigate to={'/login'} state={{from:location}} replace></Navigate>}
             {user && children};
         </div>
     );

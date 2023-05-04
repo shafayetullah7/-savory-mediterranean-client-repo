@@ -30,7 +30,7 @@ const Services = () => {
     return (
         <div>
             <h1 className='text-center text-4xl font-bold'>Our Services</h1>
-            <div className='grid grid-cols-1 md:grid-cols-4 justify-items-center mt-16'>
+            <div className='grid grid-cols-1 md:grid-cols-4 gap-5 justify-items-center mt-16'>
                 {services.map(service => <div 
                 key={service.id}
                 className='border w-[250px] h-[250px] p-7 rounded-xl border-[#a97253]'
