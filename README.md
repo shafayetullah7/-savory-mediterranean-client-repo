@@ -3,6 +3,9 @@
 # Project Name
 Savory Mediterranean
 
+## cuisine
+Mediterranean
+
 ## About
 This is a project that showcases our available chefs, the recipes they can make, and what our customers are saying about them.
 
