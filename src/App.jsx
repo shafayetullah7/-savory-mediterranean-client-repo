@@ -21,7 +21,7 @@ const App = () => {
         theme="light"
       />
 
-      <div className='bg-[#A3BB98] py-2'>
+      <div className='bg-[#A3BB98] py-2 z-50'>
           <Nav></Nav>
       </div>
       <Outlet></Outlet>

@@ -12,7 +12,7 @@ const Chef = ({chef}) => {
     const handleViewRecipes = () =>{
         const ids = chef.recipe_ids.join('-');
         console.log(ids);
-        // setLoading(true);
+        setLoading(true);
         navigate(`/chefs/${chef.id}`);
     }
     return (

@@ -1,19 +1,25 @@
-import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../../authProvider/AuthProvider';
 
 const Login = () => {
-    const {loginUser,googleLogin,githubLogin} = useContext(AuthContext);
+    const {loginUser,googleLogin,githubLogin,setLoading} = useContext(AuthContext);
     const [error,setError] = useState();
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname;
+    console.log(location);
+    useEffect(()=>{
+        setLoading(false);
+    },[])
 
     const handleGoogleLogin = () =>{
         googleLogin()
         .then(result=>{
             console.log(result.user);
-            navigate('/',{replace:true});
+            navigate(from || '/',{replace:true});
         })
         .catch(err=>{
             console.log(err);
@@ -23,7 +29,7 @@ const Login = () => {
         githubLogin()
         .then(result=>{
             console.log(result.user);
-            navigate('/',{replace:true});
+            navigate(from || '/',{replace:true});
         })
         .catch(err=>{
             console.log(err);
@@ -50,7 +56,7 @@ const Login = () => {
         loginUser(email,password)
         .then(result=>{
             console.log(result.user);
-            navigate('/',{replace:true});
+            navigate(from || '/',{replace:true});
         })
         .catch(err=>{
             setError('Incorrect email or password');
@@ -58,14 +64,14 @@ const Login = () => {
 
     }
     return (
-        <div className='w-full h-screen flex justify-center items-center'>
+        <div className='w-full mt-10 px-2 flex justify-center items-center'>
             <div>
-                <div className='px-11 py-9 border rounded-xl'>
+                <div className='md:px-11 px-2 py-9 border rounded-xl'>
                     <h1 className='text-3xl font-bold'>Login</h1>
 
-                    <form className='mt-16 font-semibold' onSubmit={handleSubmit}>
-                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal' type="email" name='email' placeholder='Email' />
-                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal font-bold mt-7' type="password" name='password' placeholder='Password' />
+                    <form className='mt-16 font-semibold w-full md:w-[350px]' onSubmit={handleSubmit}>
+                        <input className='block w-full outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal' type="email" name='email' placeholder='Email' />
+                        <input className='block w-full outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal font-bold mt-7' type="password" name='password' placeholder='Password' />
 
                         <div className='text-sm flex justify-between items-center mt-5' >
                             <p></p>
@@ -77,7 +83,7 @@ const Login = () => {
 
                     {error && <p className='mt-1 text-xs text-red-600'>Error: {error}</p>}
 
-                    <p className='text-sm text-center mt-5'>Don't have an account? <Link className='text-amber-500 font-semibold underline' to={'/register'} replace>Create an account</Link></p>
+                    <p className='text-sm text-center mt-5'>Don't have an account? <Link className='text-amber-500 font-semibold underline' to={'/register'} state={{from:location.state.from}} replace={true}>Create an account</Link></p>
                 </div>
 
                 <div className="divider mt-7 text-gray-600">OR</div>

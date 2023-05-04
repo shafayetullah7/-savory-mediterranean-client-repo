@@ -1,20 +1,27 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../authProvider/AuthProvider';
 
 
 const Register = () => {
-    const {createUser,setUser,updateUser,googleLogin,githubLogin} = useContext(AuthContext);
+    const {createUser,setUser,updateUser,googleLogin,githubLogin,setLoading} = useContext(AuthContext);
     const [error,setError] = useState();
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname;
+    console.log(location);
+    useEffect(()=>{
+        setLoading(false);
+    },[])
+
 
     const handleGoogleLogin = () =>{
         googleLogin()
         .then(result=>{
             console.log(result.user);
-            navigate('/',{replace:true});
+            navigate(from || '/',{replace:true});
         })
         .catch(err=>{
             console.log(err);
@@ -24,7 +31,7 @@ const Register = () => {
         githubLogin()
         .then(result=>{
             console.log(result.user);
-            navigate('/',{replace:true});
+            navigate(from || '/',{replace:true});
         })
         .catch(err=>{
             console.log(err);
@@ -67,7 +74,7 @@ const Register = () => {
                 console.log(err.message);
             })
             form.reset();
-            navigate('/',{replace:true});
+            navigate(from || '/',{replace:true});
         })
         .catch(err=>{
             setError(err.message)
@@ -75,23 +82,23 @@ const Register = () => {
 
     }
     return (
-        <div className='w-full h-screen flex justify-center items-center'>
+        <div className='w-full mt-10 flex justify-center items-center'>
             <div>
-                <div className='px-11 py-9 border rounded-xl'>
+                <div className='md:px-11 md:mt-auto mt-10 px-2 py-9 border rounded-xl'>
                     <h1 className='text-3xl font-bold'>Create account</h1>
-                    <form className='mt-16 font-semibold' onSubmit={handleSubmit}>
+                    <form className='md:mt-16 mt-5 font-semibold px-2 w-full md:w-[350px]' onSubmit={handleSubmit}>
 
-                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal' type="text" name='name' placeholder='Enter Your Name'/>
-                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="email" name='email' placeholder='Enter Your Email'/>
-                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="password" name='password' placeholder='Password'/>
-                        <input className='block w-[350px] outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="text" name='photo' placeholder='Photo URL'/>
+                        <input className='block w-full  outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal' type="text" name='name' placeholder='Enter Your Name'/>
+                        <input className='block w-full outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="email" name='email' placeholder='Enter Your Email'/>
+                        <input className='block w-full outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="password" name='password' placeholder='Password'/>
+                        <input className='block w-full outline-none border-b border-black py-1 placeholder:text-gray-600 placeholder:font-normal mt-7' type="text" name='photo' placeholder='Photo URL'/>
                         
 
                         <input className='bg-amber-500 block w-full py-3 mt-12 cursor-pointer' type="submit" value={'Create an account'}/>
                     </form>
 
                     {error && <p className='mt-1 text-xs text-red-600'>Error: {error}</p>}
-                    <p className='text-sm text-center mt-5'>Already have an account? <Link className='text-amber-500 font-semibold underline' to={'/login'} replace>Login</Link></p>
+                    <p className='text-sm text-center mt-5'>Already have an account? <Link className='text-amber-500 font-semibold underline' to={'/login'} state={{from:location.state.from}} replace={true}>Login</Link></p>
                 </div>
                 
                 <div className="divider mt-7 text-gray-600">OR</div>

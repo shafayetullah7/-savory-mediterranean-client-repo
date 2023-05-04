@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Recipe from './Recipe';
 import { AuthContext } from '../../authProvider/AuthProvider';
@@ -6,7 +6,10 @@ import { AuthContext } from '../../authProvider/AuthProvider';
 const ChefRecipes = () => {
     const [chef,recipes] = useLoaderData();
     const {loading,setLoading} = useContext(AuthContext);
-    setLoading(false);
+    useEffect(()=>{
+        setLoading(false);
+    },[])
+
     console.log(chef);
     console.log(recipes);
     return (

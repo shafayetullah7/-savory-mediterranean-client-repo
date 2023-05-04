@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../authProvider/AuthProvider';
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 
 const Nav = () => {
     const {user,loading,logout} = useContext(AuthContext);
+    const location = useLocation();
+    console.log(location);
 
     const  handleLogout = ()=>{
         logout()
@@ -68,11 +70,11 @@ const Nav = () => {
             <div className="navbar-end">
                 {(user) && 
                 <div className='flex gap-5 items-center'>
-                    <Tooltip id="tooltip1" />
+                    <Tooltip place='left' id="tooltip1" />
                     {user.photoURL && <img data-tooltip-id="tooltip1" data-tooltip-content={user.displayName} className='w-12 h-12 rounded-full' src={user.photoURL}/>}
                     <button className='btn bg-gray-800' onClick={handleLogout}>Logout</button>
                 </div>}
-                {(!user && !loading) && <Link className='btn bg-gray-800' to={'/login'}>Login</Link>}
+                {(!user && !loading) && <Link className='btn bg-gray-800' to={'/login'} state={{from:location}}>Login</Link>}
             </div>
         </div>
     );
