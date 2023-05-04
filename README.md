@@ -1,7 +1,9 @@
 # b7a10-chef-recipe-hunter-client-side-shafayetullah7
 
 # Project Name
+Savory Mediterranean
 
+## About
 This is a project that showcases our available chefs, the recipes they can make, and what our customers are saying about them.
 
 ## Features
