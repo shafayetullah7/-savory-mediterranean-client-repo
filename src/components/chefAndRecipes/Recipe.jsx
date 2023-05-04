@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
+import { toast } from 'react-toastify';
 
 const Recipe = ({recipe}) => {
+    const [favorite,setFavorite] = useState(false);
+    const handleFavorite = ()=>{
+        toast(`${recipe.recipeName} is your favorite!`, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+        setFavorite(true);
+    }
+    console.log('favorite',favorite);
+
     console.log(recipe);
     return (
         <div className='w-[330px] h-[460px] border border-[#FFB100] p-3 rounded-xl flex flex-col'>
@@ -13,7 +30,7 @@ const Recipe = ({recipe}) => {
             <div className='mt-3 relative h-full'>
                 <div className='flex justify-between items-center'>
                     <p className='text-[#FFB100] text-2xl font-bold'>{recipe.recipeName}</p>
-                    <button className='px-4 py-2 rounded-md border border-[#FFB100] text-[#FFB100] font-bold text-xs'>Favorite</button>
+                    <button className={`px-4 py-2 rounded-md border ${!favorite?'border-[#FFB100] text-[#FFB100]':'border-[#ffd77b] text-[#ffd77b]'} font-bold text-xs`} disabled={favorite} onClick={handleFavorite}>Favorite</button>
                 </div>
                 <p className='mt-3 text-sm text-gray-500'><span className='text-black font-bold'>Ingredients: </span>{recipe.ingredients.map((each,i,list) => <span key={i}>{each}{i===list.length-1?<span>.</span>:<span>,</span>} </span>)}</p>
                 

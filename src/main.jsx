@@ -31,12 +31,12 @@ const routes = createBrowserRouter([
             element:<Land></Land>,
             loader:fetchChefs
           },
-          {
-            path:'/chefs/:id',
-            element:<PrivateRoute><ChefRecipes></ChefRecipes></PrivateRoute>,
-            loader:fetchChefAndRecipes
-          }
         ],
+      },
+      {
+        path:'/chefs/:id',
+        element:<PrivateRoute><ChefRecipes></ChefRecipes></PrivateRoute>,
+        loader:fetchChefAndRecipes
       },
       {
         path:'/blog',
